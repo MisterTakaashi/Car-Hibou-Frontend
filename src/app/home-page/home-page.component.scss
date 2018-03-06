@@ -107,7 +107,8 @@
 
     .input-group-text {
       background: #fff;
-      border-right-width: 0px;
+
+      border-width: 0px;
   
       i {
         color: $blue;
@@ -120,6 +121,7 @@
 
     .form-control {
       border: 0px solid #ced4da;
+      padding-left: 3px;
 
       &:focus {
         box-shadow: none;
@@ -128,6 +130,19 @@
 
     button {
       height: 47px;
+
+      margin-top: -5px;
+    }
+
+    .destination-separator {
+      color: white;
+      font-family: 'Roboto';
+
+      font-weight: 700;
+
+      font-size: 25px;
+
+      line-height: 43px;
     }
   }
 }
