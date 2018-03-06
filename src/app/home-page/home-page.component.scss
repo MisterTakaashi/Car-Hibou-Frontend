@@ -1,0 +1,133 @@
+@import "../../variables";
+
+.container-fluid {
+  // background: url('/assets/Screenshot_13-min.png');
+  background: $blue;
+}
+
+.destination {
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+  @keyframes cloud1 {
+      0%   {transform: translateX(50px) translateY(10px) scale(0.6);}
+      50%  {transform: translateX(50px) translateY(15px) scale(0.6);}
+      100% {transform: translateX(50px) translateY(10px) scale(0.6);}
+  }
+
+  @keyframes cloud2 {
+      0%   {transform: translateX(0px) translateY(90px) scale(0.4);}
+      50%  {transform: translateX(0px) translateY(100px) scale(0.4);}
+      100% {transform: translateX(0px) translateY(90px) scale(0.4);}
+  }
+
+  @keyframes cloud3 {
+      0%   {transform: translateX(190px) translateY(20px) scale(0.3);}
+      50%  {transform: translateX(190px) translateY(10px) scale(0.3);}
+      100% {transform: translateX(190px) translateY(20px) scale(0.3);}
+  }
+
+  @keyframes cloud4 {
+      0%   {transform: translateX(360px) translateY(-40px) scale(0.3);}
+      50%  {transform: translateX(360px) translateY(-30px) scale(0.3);}
+      100% {transform: translateX(360px) translateY(-40px) scale(0.3);}
+  }
+
+  @keyframes cloud5 {
+      0%   {transform: translateX(400px) translateY(40px) scale(0.5);}
+      50%  {transform: translateX(400px) translateY(30px) scale(0.5);}
+      100% {transform: translateX(400px) translateY(40px) scale(0.5);}
+  }
+
+  .cloud {
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+
+    animation-name: cloud1;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  #cloud1 {
+    transform: translateX(50px) translateY(10px) scale(0.6);
+
+    animation-name: cloud1;
+  }
+
+  #cloud2 {
+    transform: translateX(0px) translateY(90px) scale(0.4);
+
+    animation-name: cloud2;
+    animation-delay: 1s;
+    animation-duration: 7s;
+  }
+
+  #cloud3 {
+    transform: translateX(190px) translateY(20px) scale(0.3);
+
+    animation-name: cloud3;
+    animation-delay: 0.5s;
+    animation-duration: 7s;
+  }
+
+  #cloud4 {
+    transform: translateX(360px) translateY(-40px) scale(0.3);
+
+    animation-name: cloud4;
+    animation-delay: 0.5s;
+    animation-duration: 7s;
+  }
+
+  #cloud5 {
+    transform: translateX(400px) translateY(40px) scale(0.5);
+    
+    animation-name: cloud5;
+    animation-delay: 0.5s;
+    animation-duration: 5s;
+  }
+
+  h2 {
+    margin-top: 70px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+    color: white;
+  }
+
+  h5 {
+    color: rgba(white, 0.6);
+  }
+
+  .destination-form {
+    padding-top: 100px;
+
+    .input-group-text {
+      background: #fff;
+      border-right-width: 0px;
+  
+      i {
+        color: $blue;
+      }
+    }
+  
+    .form-group {
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    }
+
+    .form-control {
+      border: 0px solid #ced4da;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    button {
+      height: 47px;
+    }
+  }
+}
