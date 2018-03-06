@@ -29,7 +29,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-2">
             <div class="form-group">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
@@ -37,22 +37,29 @@
                     <i class="fa fa-location-arrow" aria-hidden="true"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control form-control-lg" placeholder="Aller à..">
+                <!-- <input type="text" class="form-control " > -->
+                <select class="custom-select form-control form-control-lg" style="height: 46px;">
+                  <option value="100" selected>100m</option>
+                  <option value="250">250m</option>
+                  <option value="500">500m</option>
+                  <option value="1000">1km</option>
+                </select>
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <div class="form-group">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
                 </div>
-                <input type="text" class="form-control form-control-lg" placeholder="Date">
+                <input type="text" class="form-control form-control-lg" placeholder="Date" bsDatepicker [(ngModel)]="dateSearch" placement="top" [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat: 'DD/MM/YYYY'}">
               </div>
             </div>
           </div>
-          <div class="col-3">
-            <button class="btn btn-lg btn-outline-light btn-block">Rechercher</button>
+          <div class="col-3 px-0">
+            <button class="btn btn-lg btn-outline-light">Rechercher</button>
+            <button class="btn btn-lg btn-outline-light">Voir la carte</button>
           </div>
         </div>
       </div>

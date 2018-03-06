@@ -1,7 +1,12 @@
 @import 'variables'; 
 @import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 @import '../node_modules/font-awesome/scss/font-awesome';
 
 .bg-dark {
   background-color: $blue !important;
+}
+
+bs-datepicker-container {
+  margin-left: -15px !important;
 }
