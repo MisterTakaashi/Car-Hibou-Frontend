@@ -10,7 +10,8 @@ export class PhotonGeo {
       city: string,
       country: string,
       name: string,
-      postcode: number
+      postcode: number,
+      formattedName?: string
     }
   }[]
 }

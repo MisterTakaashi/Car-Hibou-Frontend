@@ -26,7 +26,7 @@ export class HomePageComponent implements OnInit {
       // Runs on every search
       this._photonService.search(this.placeSearch).subscribe(data => {
         let searchArray = data.features;
-        console.log(data.features);
+        searchArray.map(x => x.properties.formattedName = `${x.properties.name}, ${x.properties.city}, ${x.properties.country}`);
         observer.next(searchArray);
       });
     });
