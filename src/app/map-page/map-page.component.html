@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 panel-search px-0">
+      <div [ngStyle]="{'height.px': innerHeight - 30}">
+        <div class="panel-search-options text-light px-2">
+          <h4 class="pt-2">Options de recherche</h4>
+          <hr class="mt-3">
+          <p>Salut</p>
+        </div>
+        <div class="px-2">
+          <h4 class="mt-2">Résultats de la recherche</h4>
+          <hr class="mt-3">
+          <div class="card w-100 mt-3" *ngFor="let user of users">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3">
+                  <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-9 pl-0">
+                  <h5 class="card-title mt-1 mb-1">Michel</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+                </div>
+              </div>
+              <p class="card-text mt-2">Responsable commercial chez Bible Black Corporation.</p>
+              <div class="text-right">
+                <a href="#" class="btn btn-primary">Covoiturer</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 px-0">
+      <agm-map [latitude]="43.62" [longitude]="1.43" [zoom]="15" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
+        <agm-circle [latitude]="43.62" [longitude]="1.43" [radius]="250" fillColor="#4264fb" fillOpacity="0.6"></agm-circle>
+      </agm-map>
+    </div>
+  </div>
+</div>

@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.router';
 
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-
 import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MapPageComponent } from './map-page/map-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB4ZCCcLwrQdGQPsNDW-uu5Gt3HP9L297g'
+    }),
     BsDatepickerModule.forRoot(),
     TypeaheadModule.forRoot()
   ],
