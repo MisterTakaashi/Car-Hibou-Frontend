@@ -2,6 +2,7 @@
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 @import '../node_modules/font-awesome/scss/font-awesome';
+@import "../node_modules/nouislider/distribute/nouislider.min.css";
 
 .bg-dark {
   background-color: $blue !important;
@@ -9,4 +10,14 @@
 
 bs-datepicker-container {
   margin-left: -15px !important;
+}
+
+.noUi-connect {
+  background: $blue;
+}
+
+.noUi-tooltip {
+  top: 32px;
+  bottom: initial;
+  height: 40px;
 }
