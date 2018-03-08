@@ -25,23 +25,23 @@ export class LocalSessionService {
     return JSON.parse(localStorage.getItem(UserItemId));
   }
 
-  public setToken(token: string){
+  public setToken(token: string): void{
     localStorage.setItem(TokenItemId, token);
   }
 
-  public setUser(user: User){
+  public setUser(user: User): void{
     localStorage.setItem(UserItemId, JSON.stringify(user));
   }
 
-  public resetToken(){
+  private resetToken(): void{
     localStorage.removeItem(TokenItemId);
   }
 
-  public resetUser(){
+  private resetUser(): void{
     localStorage.removeItem(UserItemId);
   }
 
-  public resetCredentials(){
+  public resetCredentials(): void{
     this.resetToken();
     this.resetUser();
   }
