@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { NouiFormatter } from 'ng2-nouislider';
+import { ActivatedRoute } from '@angular/router';
 
 // Utilisé dans le cas de tooltips
 // export class RadiusFormatter implements NouiFormatter {
@@ -39,15 +40,39 @@ export class MapPageComponent implements OnInit {
     // }
   };
 
+  searchDate: Date;
+
+  mapCoords: any = {lat: 43.62, lng: 1.43};
   circleCoords: any = {lat: 43.62, lng: 1.43};
 
   innerHeight: number;
 
   users: number[];
 
-  constructor() { }
+  constructor(
+    private _route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this._route.paramMap.subscribe((data) => {
+      if (!data.get('lat'))
+        return;
+
+      let lat = data.get('lat');
+      let lng = data.get('lng');
+      let radius = data.get('radius');
+      let date = data.get('date');
+
+      this.searchDate = new Date(date);
+
+      this.mapCoords.lat = Number.parseFloat(lat);
+      this.mapCoords.lng = Number.parseFloat(lng);
+
+      this.circleCoords.lat = Number.parseFloat(lat);
+      this.circleCoords.lng = Number.parseFloat(lng);
+      this.radiusSlider = Number.parseInt(radius);
+    });
+
     this.calculateMapHeight();
 
     this.users = [0,0,0,0,0,0,0,0,0,0];

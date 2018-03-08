@@ -37,7 +37,7 @@
                     <i class="fa fa-location-arrow" aria-hidden="true"></i>
                   </div>
                 </div>
-                <select class="custom-select form-control form-control-lg" style="height: 46px;">
+                <select class="custom-select form-control form-control-lg" [(ngModel)]="placeRadius" style="height: 46px;">
                   <option value="100" selected>100m</option>
                   <option value="250">250m</option>
                   <option value="500">500m</option>
@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="col-4 px-0">
-            <button class="btn btn-lg btn-outline-light">Rechercher</button>
+            <a [routerLink]="['map', {lat: placeSelected.lat, lng: placeSelected.lng, radius: placeRadius, date: dateSearch | date:'yyyy-MM-dd'}]" class="btn btn-lg btn-outline-light">Rechercher</a>
             <span class="destination-separator mx-3 p-2">ou</span>
             <a routerLink="map" class="btn btn-lg btn-outline-light">Voir la carte</a>
           </div>

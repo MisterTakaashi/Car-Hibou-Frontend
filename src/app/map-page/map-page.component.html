@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="col-9 px-0">
-      <agm-map [latitude]="43.62" [longitude]="1.43" [zoom]="15" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
+      <agm-map [latitude]="mapCoords.lat" [longitude]="mapCoords.lng" [zoom]="15" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
         <agm-circle *ngIf="circleCoords && circleCoords.lng && circleCoords.lat" [latitude]="circleCoords.lat" [longitude]="circleCoords.lng" [radius]="radiusSlider" fillColor="#4264fb" fillOpacity="0.6"></agm-circle>
       </agm-map>
     </div>
