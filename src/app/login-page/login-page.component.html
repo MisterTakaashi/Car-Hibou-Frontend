@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12">
       <form>
-        <input name="login" type="text" placeholder="Login" [(ngModel)]="login"/>
-        <input name="password" type="password" placeholder="Password" [(ngModel)]="password"/>
+        <label for="login">Identifiant : <input name="login" type="text" placeholder="Login" [(ngModel)]="login"/></label>
+        <label for="login">Mot de passe : <input name="password" type="password" placeholder="Password" [(ngModel)]="password"/></label>
         <button (click)="onClick();" type="submit">Se connecter</button>
       </form>
     </div>
