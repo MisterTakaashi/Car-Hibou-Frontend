@@ -15,8 +15,6 @@ import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
 
-import { ItineraryService } from './Itinerary.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +34,7 @@ import { ItineraryService } from './Itinerary.service';
     TypeaheadModule.forRoot(),
     NouisliderModule
   ],
-  providers: [ItineraryService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

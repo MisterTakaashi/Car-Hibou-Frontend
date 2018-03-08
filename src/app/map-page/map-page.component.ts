@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { NouiFormatter } from 'ng2-nouislider';
 import { ActivatedRoute } from '@angular/router';
-import {ItineraryService} from '../itinerary.service'
+import { ItineraryService } from '../shared/services/itinerary.service';
 
 // Utilisé dans le cas de tooltips
 // export class RadiusFormatter implements NouiFormatter {

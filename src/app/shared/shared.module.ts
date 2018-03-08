@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PhotonService } from './services/photon.service';
 import { PlaceSearchPipe } from './pipes/place-search.pipe';
+import { ItineraryService } from './services/itinerary.service';
 
 const MODULES = [
   // NE PAS INCLURE UniversalModule, HttpModule, ou JsonpModule ici
@@ -22,7 +23,8 @@ const PROVIDERS = [
 ]
 
 const SERVICES = [
-  PhotonService
+  PhotonService,
+  ItineraryService
 ]
 
 @NgModule({

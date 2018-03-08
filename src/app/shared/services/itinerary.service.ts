@@ -5,7 +5,7 @@ import { of } from 'rxjs/observable/of';
 
 import { HttpClient } from '@angular/common/http';
 
-import {Itinerary} from './itinerary'
+import {Itinerary} from '../models/itinerary';
 
 @Injectable()
 export class ItineraryService {
@@ -27,7 +27,7 @@ export class ItineraryService {
 
   deleteIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
     return this._http
-      .delete<Itinerary>(this.API_URL +'' ,{itinerary: Itinerary});
+      .delete<Itinerary>(this.API_URL +'');
   }
 
   createIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
