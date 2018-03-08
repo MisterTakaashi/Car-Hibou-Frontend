@@ -14,12 +14,14 @@ import { AppRoutingModule } from './app.router';
 import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
+import { ItineraryPageComponent } from './itinerary-page/itinerary-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    MapPageComponent
+    MapPageComponent,
+    ItineraryPageComponent
   ],
   imports: [
     BrowserModule,

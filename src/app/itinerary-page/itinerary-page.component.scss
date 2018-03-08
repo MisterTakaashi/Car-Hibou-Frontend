@@ -1,0 +1,17 @@
+@import "../../variables";
+
+.panel-search {
+  box-shadow: 3px 2px 3px 0px rgba(0,0,0,0.3);
+
+  z-index: 1020;
+  
+  overflow-y: auto;
+
+  .panel-search-options {
+    background: $blue;
+  }
+
+  .card-text {
+    font-size: .9rem;
+  }
+}

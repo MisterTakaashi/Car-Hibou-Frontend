@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PhotonService } from './services/photon.service';
+import { LocationService } from './services/location.service';
 import { PlaceSearchPipe } from './pipes/place-search.pipe';
 
 const MODULES = [
@@ -22,7 +23,8 @@ const PROVIDERS = [
 ]
 
 const SERVICES = [
-  PhotonService
+  PhotonService,
+  LocationService
 ]
 
 @NgModule({

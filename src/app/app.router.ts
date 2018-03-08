@@ -4,10 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
+import { ItineraryPageComponent } from './itinerary-page/itinerary-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
-  {path: 'map', component: MapPageComponent}
+  {path: 'map', component: MapPageComponent},
+  {path: 'itinerary', component: ItineraryPageComponent}
 ];
 
 @NgModule({

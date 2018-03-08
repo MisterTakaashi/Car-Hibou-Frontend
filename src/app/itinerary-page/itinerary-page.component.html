@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 panel-search px-0">
+      <div [ngStyle]="{'height.px': innerHeight - 30}">
+        <div class="px-2">
+          <h4 class="mt-2">Création d'itinéraire</h4>
+          <hr class="mt-3">
+          <form>
+            <div class="form-group">
+              <label>D'où partez vous ?</label>
+              <input type="text" class="form-control" [(ngModel)]="departureAdress" [typeahead]="placeSearchSource" [typeaheadOptionsLimit]="4" (typeaheadOnSelect)="typeaheadOnSelect($event)" typeaheadOptionField="properties.formattedName" [typeaheadWaitMs]="500" name="departureSearch">
+              <small id="emailHelp" class="form-text text-muted">Vous pouvez aussi cliquer sur la carte pour choisir le point de départ.</small>
+            </div>
+            <div class="form-group">
+              <label>En route vers L'entreprise</label>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-block btn-primary">Valider l'itinéraire</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 px-0">
+      <agm-map [latitude]="mapCoords.lat" [longitude]="mapCoords.lng" [zoom]="13" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
+        <agm-marker *ngIf="departureSelected && departureSelected.lng && departureSelected.lat" [latitude]="departureSelected.lat" [longitude]="departureSelected.lng"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>

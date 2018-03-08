@@ -13,7 +13,6 @@ export class PhotonService {
   ) { }
 
   search(query: string) : Observable<PhotonGeo> {
-    // return this._http.get<PhotonGeo>('http://photon.komoot.de/api/?q=' + query + '&lang=fr');
     return this._http.get<PhotonGeo>('http://photon.komoot.de/api/?q=' + query + '&lang=fr');
   }
 
