@@ -8,6 +8,7 @@ import { ItineraryService } from './services/itinerary.service';
 import { LocalSessionService } from './services/local-session.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/httpInterceptor';
+import { DirectionsMapDirective } from './directives/agm-directive.directive';
 
 const MODULES = [
   // NE PAS INCLURE UniversalModule, HttpModule, ou JsonpModule ici
@@ -24,6 +25,10 @@ const COMPONENTS = [
 
 const PROVIDERS = [
   // Inclure le sproviders
+]
+
+const DIRECTIVES = [
+  // DirectionsMapDirective
 ]
 
 const SERVICES = [
@@ -44,7 +49,8 @@ const SERVICES = [
   ],
   declarations: [
     ...PIPES,
-    ...COMPONENTS
+    ...COMPONENTS,
+    ...DIRECTIVES
   ],
   exports: [
     ...MODULES,

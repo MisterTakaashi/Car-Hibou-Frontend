@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 import { NouisliderModule } from 'ng2-nouislider';
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB4ZCCcLwrQdGQPsNDW-uu5Gt3HP9L297g'
     }),
+    AgmDirectionModule,
     BsDatepickerModule.forRoot(),
     TypeaheadModule.forRoot(),
     NouisliderModule
