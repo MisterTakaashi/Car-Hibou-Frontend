@@ -2,10 +2,13 @@
   <div class="row">
     <div class="col-3 panel-search px-0">
       <div [ngStyle]="{'height.px': innerHeight - 30}">
-        <div class="panel-search-options text-light px-2">
+        <div class="panel-search-options text-light px-2 pb-3">
           <h4 class="pt-2">Options de recherche</h4>
           <hr class="mt-3">
-          <p>Salut</p>
+          <h6 class="mb-2">Cliquer sur la carte pour choisir un endroit ou trouver un chauffeur.</h6>
+          <hr class="mt-3">
+          <h6 class="mb-2">Rayon de recherche: {{ radiusSlider }}m</h6>
+          <nouislider [connect]="[true, false]" [config]="radiusSliderConfig" [step]="1" [(ngModel)]="radiusSlider" name="radius" class="my-1 hideHandles"></nouislider>
         </div>
         <div class="px-2">
           <h4 class="mt-2">Résultats de la recherche</h4>
@@ -31,8 +34,8 @@
       </div>
     </div>
     <div class="col-9 px-0">
-      <agm-map [latitude]="43.62" [longitude]="1.43" [zoom]="15" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
-        <agm-circle [latitude]="43.62" [longitude]="1.43" [radius]="250" fillColor="#4264fb" fillOpacity="0.6"></agm-circle>
+      <agm-map [latitude]="mapCoords.lat" [longitude]="mapCoords.lng" [zoom]="15" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
+        <agm-circle *ngIf="circleCoords && circleCoords.lng && circleCoords.lat" [latitude]="circleCoords.lat" [longitude]="circleCoords.lng" [radius]="radiusSlider" fillColor="#4264fb" fillOpacity="0.6"></agm-circle>
       </agm-map>
     </div>
   </div>

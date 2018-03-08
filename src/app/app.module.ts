@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AgmCoreModule } from '@agm/core';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.router';
@@ -16,6 +17,8 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { TokenInterceptor } from './shared/interceptors/httpInterceptor';
+
+import { ItineraryService } from './Itinerary.service';
 
 @NgModule({
   declarations: [
@@ -35,13 +38,14 @@ import { TokenInterceptor } from './shared/interceptors/httpInterceptor';
       apiKey: 'AIzaSyB4ZCCcLwrQdGQPsNDW-uu5Gt3HP9L297g'
     }),
     BsDatepickerModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    NouisliderModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }],
+  }, ItineraryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

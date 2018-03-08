@@ -16,6 +16,8 @@ export class HomePageComponent implements OnInit {
 
   dateSearch: Date;
   placeSearch: string;
+  placeRadius: number = 100;
+  placeSelected: any = {};
 
   placeSearchSource: Observable<PhotonGeo>;
 
@@ -35,6 +37,8 @@ export class HomePageComponent implements OnInit {
   typeaheadOnSelect(e: TypeaheadMatch): void {
     console.log('Selected value: ', e.value);
     console.log(e.item);
+    this.placeSelected.lng = e.item.geometry.coordinates[0];
+    this.placeSelected.lat = e.item.geometry.coordinates[1];
   }
 
   ngOnInit() {
