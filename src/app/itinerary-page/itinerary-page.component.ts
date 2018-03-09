@@ -10,6 +10,7 @@ import { DirectionService } from '../shared/services/direction.service';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { CompanyService } from '../shared/services/company.service';
 import { Company } from '../shared/models/company';
+import { Itinerary } from '../shared/models/itinerary';
 
 @Component({
   selector: 'app-itinerary-page',
@@ -37,6 +38,7 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
   company: Company;
 
   itineraryValidated: boolean = false;
+  loading: boolean = false;
 
   map: any;
 
@@ -100,7 +102,16 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
   }
 
   validateItinerary() {
-    this._directionService.getDirectionSteps(this.map);
+    this.loading = true;
+    this._directionService.getDirectionSteps(this.map).subscribe(direction => {
+      console.log(direction);
+      console.log(direction.routes[0].overview_path[0]);
+      console.log(direction.routes[0].overview_path[0].lat());
+      console.log(direction.routes[0].overview_path[0].lng());
+      let itinerary = new Itinerary();
+      itinerary.arrival = this.company.location;
+      itinerary.start = this.departureSelected;
+    });
   }
 
   private calculateMapHeight() {

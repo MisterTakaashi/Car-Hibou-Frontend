@@ -13,7 +13,6 @@ export class ItineraryService {
   constructor(private _http: HttpClient) { }
   API_URL = "http://10.31.1.192:8080";
 
-
   getIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
     return this._http
       .get<Itinerary>(this.API_URL + '/');

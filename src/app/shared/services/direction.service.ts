@@ -11,8 +11,8 @@ export class DirectionService {
 
   constructor(private _gmapsApiWrapper: GoogleMapsAPIWrapper) { }
 
-  getDirectionSteps(map: any): any {
-    // this._gmapsApiWrapper.getNativeMap().then(map => {
+  getDirectionSteps(map: any): Observable<any> {
+    return new Observable<any>(observer => {
       this.directionsService = new google.maps.DirectionsService;
 
       this.directionsService.route({
@@ -21,14 +21,14 @@ export class DirectionService {
         travelMode: 'DRIVING'
       }, (response: any, status: any) => {
         if (status === 'OK') {
-          console.log(response);
-          console.log(response.routes[0].overview_path[0]);
-          console.log(response.routes[0].overview_path[0].lat());
-          console.log(response.routes[0].overview_path[0].lng());
-          // this.directionsDisplay.setDirections(response);
+          observer.next(response);
+          observer.complete();
+        }else {
+          observer.error(response);
+          observer.complete();
         }
       });
-    // });
+    });
   }
  
 }
