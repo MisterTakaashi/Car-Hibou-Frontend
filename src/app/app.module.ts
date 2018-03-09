@@ -18,7 +18,11 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { ItineraryPageComponent } from './itinerary-page/itinerary-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+<<<<<<< HEAD
 import { TripPageComponent } from './trip-page/trip-page.component';
+=======
+import { NearbyUsersComponent } from './nearby-users/nearby-users.component';
+>>>>>>> 9682ce7257617aa2529d722356c07f8f8f9f29a7
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { TripPageComponent } from './trip-page/trip-page.component';
     ItineraryPageComponent,
     LoginPageComponent,
     RegisterPageComponent,
+<<<<<<< HEAD
     TripPageComponent
+=======
+    NearbyUsersComponent
+>>>>>>> 9682ce7257617aa2529d722356c07f8f8f9f29a7
   ],
   imports: [
     BrowserModule,

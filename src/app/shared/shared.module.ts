@@ -12,6 +12,7 @@ import { LocalSessionService } from './services/local-session.service';
 import { TokenInterceptor } from './interceptors/httpInterceptor';
 import { DirectionsMapDirective } from './directives/agm-directive.directive';
 import { DirectionService } from './services/direction.service';
+import { CompanyService } from './services/company.service';
 
 const MODULES = [
   // NE PAS INCLURE UniversalModule, HttpModule, ou JsonpModule ici
@@ -39,6 +40,7 @@ const SERVICES = [
   LocationService,
   LocalSessionService,
   ItineraryService,
+  CompanyService,
   DirectionService,
   {
     provide: HTTP_INTERCEPTORS,
