@@ -13,11 +13,15 @@ export class CompanyService {
     private _http: HttpClient
   ) { }
 
-  // getCompanyLocation() : Observable<Company> {
-  //   new Observable<Company>(observer => {
-  //     observer.next();
-  //   });
-  //   // return this._http.get<IpLocation>('http://ip-api.com/json');
-  // }
+  getCompany() : Observable<Company> {
+    return new Observable<Company>(observer => {
+      let company: Company = new Company();
+      company.name = "Matou Corp.";
+      company.location = {lat: 43.613, lng: 1.393};
+
+      observer.next(company);
+    });
+    // return this._http.get<IpLocation>('http://ip-api.com/json');
+  }
 
 }

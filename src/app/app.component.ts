@@ -7,6 +7,7 @@ import { LocalSessionService } from './shared/services/local-session.service';
 import { DirectionService } from './shared/services/direction.service';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { LoginService } from './shared/services/login.service';
+import { CompanyService } from './shared/services/company.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { LoginService } from './shared/services/login.service';
     ItineraryService,
     DirectionService,
     LocalSessionService,
+    CompanyService,
     GoogleMapsAPIWrapper,
     LoginService
   ]

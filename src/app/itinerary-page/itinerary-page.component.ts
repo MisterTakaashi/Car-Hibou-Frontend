@@ -8,6 +8,8 @@ import { PhotonService } from '../shared/services/photon.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { DirectionService } from '../shared/services/direction.service';
 import { GoogleMapsAPIWrapper } from '@agm/core';
+import { CompanyService } from '../shared/services/company.service';
+import { Company } from '../shared/models/company';
 
 @Component({
   selector: 'app-itinerary-page',
@@ -32,16 +34,27 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
 
   placeSearchSource: Observable<PhotonGeo>;
 
+  company: Company;
+
+  itineraryValidated: boolean = false;
+
+  map: any;
+
   constructor(
     private _route: ActivatedRoute,
     private _photonService: PhotonService,
     private _locationService: LocationService,
     private _directionService: DirectionService,
+    private _companyService: CompanyService,
     private _gmapsApiWrapper: GoogleMapsAPIWrapper
   ) { }
 
   ngOnInit() {
     this.calculateMapHeight();
+
+    this._companyService.getCompany().subscribe(company => {
+      this.company = company;
+    });
 
     this._locationService.getApproximativeLocation().subscribe(data => {
       this.mapCoords = {lat: data.lat, lng: data.lon};
@@ -59,7 +72,7 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.agmMap.mapReady.subscribe(map => {
-      this._directionService.getDirectionSteps(map);
+      this.map = map;
     });
   }
 
@@ -67,11 +80,27 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
     this.departureSelected.lng = e.item.geometry.coordinates[0];
     this.departureSelected.lat = e.item.geometry.coordinates[1];
 
+    this.itineraryValidated = false;
+
     this.mapCoords = {lat: this.departureSelected.lat, lng: this.departureSelected.lng};
   }
 
   mapOnClick(event: any) {
-    // this.circleCoords = event.coords;
+    this.mapCoords = {lat: event.coords.lat, lng: event.coords.lng};
+    this.departureSelected = {lat: event.coords.lat, lng: event.coords.lng};
+
+    this.departureAdress = `${event.coords.lat}, ${event.coords.lng}`;
+  }
+
+  seeItinerary() {
+    if (!this.departureSelected.lat || !this.departureSelected.lng)
+      return;
+
+    this.itineraryValidated = true;
+  }
+
+  validateItinerary() {
+    this._directionService.getDirectionSteps(this.map);
   }
 
   private calculateMapHeight() {
