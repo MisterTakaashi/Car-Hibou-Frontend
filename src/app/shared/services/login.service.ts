@@ -18,9 +18,9 @@ export class LoginService {
     return this._http.get<ApiResponse<User>>(`${SharedModule.API_URL}/users/register?username=${username}&email=${mail}&password=${password}&passwordConfirm=${password2}`);
   }
 
-   public LogIn(username: string, password : string) : Observable<ApiResponse<User>> {
-      let user : User = { username: username, password: password };
-      return this._http.post<ApiResponse<User>>("URL", user);
+   public LogIn(username: string, password: string) : Observable<ApiResponse<User>> {
+      let user: User = { username: username, password: password };
+      return this._http.get<ApiResponse<User>>(`${SharedModule.API_URL}/users/auth?username=${username}&password=${password}`);
    }
 
    public LogOut(user: User): Observable<ApiResponse<boolean>>{
