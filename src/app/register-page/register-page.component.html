@@ -1,13 +1,56 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-4">
+        <div class="card upper-margin">
+          <div class="card-body">
+            <form class="bd-example">
+              <h2>Création de compte</h2>
+              <hr/>
+              <div class="form-group row">
+                <label for="login">Identifiant : </label><input id="login" name="login" type="text" placeholder="Identifiant..." [(ngModel)]="login" class="form-control"/>
+              </div>
+              <div class="form-group row">
+                <label for="password">Mot de passe : </label><input id="password" name="password" type="password" placeholder="Mot de passe..." [(ngModel)]="password" class="form-control"/>
+              </div>
+              <div class="form-group row">
+                  <label for="password2">Mot de passe : </label><input id="password2" name="password2" type="password" placeholder="Saisir à nouveau votre Mot de passe..." [(ngModel)]="password2" class="form-control"/>
+              </div>
+              <div class="form-group row">
+                  <label for="mail">Mail : </label><input id="mail" name="mail" type="text" placeholder="Adresse mail..." [(ngModel)]="mail" class="form-control"/>
+              </div>
+              <div class="row justify-content-md-center">
+                <div class="col-sm-4">
+                  <button (click)="onClick();" type="submit" class="btn btn-primary">Se connecter</button>  
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<!--
 <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <form>
           <label for="login">Identifiant : <input id="login" name="login" type="text" placeholder="Identifiant..." [(ngModel)]="login"/></label>
           <label for="login">Mot de passe : <input id="password" name="password" type="password" placeholder="Mot de passe..." [(ngModel)]="password"/></label>
-          <label for="login">Mot de passe : <input id="password2" name="password2" type="password" placeholder="Saisir à nouveau votre Mot de passe..." [(ngModel)]="password2"/></label>
-          <label for="login">Mail : <input id="mail" name="mail" type="text" placeholder="Adresse mail..." [(ngModel)]="mail"/></label>
+          
+
           <button (click)="onClick();" type="submit">S'enregistrer</button>
         </form>
       </div>
     </div>
   </div>
+
+-->

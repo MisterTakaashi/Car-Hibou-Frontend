@@ -18,6 +18,8 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { ItineraryPageComponent } from './itinerary-page/itinerary-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { TripPageComponent } from './trip-page/trip-page.component';
+import { NearbyUsersComponent } from './nearby-users/nearby-users.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     MapPageComponent,
     ItineraryPageComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    TripPageComponent,
+    NearbyUsersComponent
   ],
   imports: [
     BrowserModule,
