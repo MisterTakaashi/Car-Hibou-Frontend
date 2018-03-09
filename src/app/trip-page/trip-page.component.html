@@ -4,10 +4,11 @@
     <div class="col-3">
       <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
     </div>
-    <div class="col-9 pl-0">
+    <div class="col-7 pl-0">
       <h5 class="card-title mt-1 mb-1">Michel</h5>
       <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
     </div>
+    <div class="col-2 pl-0"><a routerLink="#" class="btn btn-info">Partager le Trajet <i class="fa fa-facebook-square" style="font-size:24px"></i></a></div>
   </div>
   <p class="card-text mt-2">Responsable commercial chez Bible Black Corporation.</p>
  
@@ -30,9 +31,49 @@
     </tbody>
   </table>
   
+  <div *ngIf="driver == false"> 
   <div class="text-center">
     <a routerLink="/trip" class="btn btn-primary">Proposer votre compagnie</a>
   </div>
+</div>
+<div *ngIf="driver == true">
+    <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row"> Demende en attente </th>
+            <td>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+                      </div>
+                      <div class="col-9 pl-0">
+                        <h5 class="card-title mt-1 mb-1">Michel</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+                      </div>
+                    </div>
+                 </div>
+                 <a routerLink="/trip" class="btn btn-primary">Valider</a><a routerLink="/trip" class="btn btn-danger">Refuser</a>
+            </td>
+            <td>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+                      </div>
+                      <div class="col-9 pl-0">
+                        <h5 class="card-title mt-1 mb-1">Michel</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+                      </div>
+                    </div>
+                 </div>
+                 <a routerLink="/trip" class="btn btn-primary">Valider</a><a routerLink="/trip" class="btn btn-danger">Refuser</a>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+</div>
 </div>
 
 <div class="align right">

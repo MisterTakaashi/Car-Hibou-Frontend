@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TripPageComponent implements OnInit {
 
-
+  driver : boolean = true;
   constructor(
     private _routerService: Router
   ) { }
