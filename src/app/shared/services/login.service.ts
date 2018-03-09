@@ -19,7 +19,7 @@ export class LoginService {
       return this._http.post<User>("URL", user);
    }
 
-   public LogOut(user: User): Observable<boolean>{
-       return this._http.post<boolean>("URL", user);
+   public LogOut(token: String): Observable<boolean>{
+       return this._http.post<boolean>("URL", token);
    }
 }
