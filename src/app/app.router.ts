@@ -8,11 +8,13 @@ import { ItineraryPageComponent } from './itinerary-page/itinerary-page.componen
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
+import { TripPageComponent } from './trip-page/trip-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'map', component: MapPageComponent},
   {path: 'itinerary', component: ItineraryPageComponent},
+  {path: 'trip', component: TripPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'logout', component: LogoutPageComponent}
