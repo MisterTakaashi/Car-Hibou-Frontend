@@ -29,9 +29,10 @@ export class RegisterPageComponent implements OnInit {
     {
       this._loginService.Register(this.login, this.password, this.password2, this.mail).subscribe(response => {
             if (response != null){
-              this._localSessionService.setUser(response);
-              this._localSessionService.setToken(response.token);
-              this._routerService.navigate(['/']);
+              // TODO: Connecter a ce moment
+              // this._localSessionService.setUser(response.result);
+              // this._localSessionService.setToken(response.token);
+              this._routerService.navigate(['/login']);
             }
           });
     } else {
@@ -40,7 +41,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   public registrationIsOk(){
-    // TODO Test for values
+    // TODO: Test for values
     return true;
   }
 }

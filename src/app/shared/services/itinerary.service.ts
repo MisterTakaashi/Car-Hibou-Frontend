@@ -6,32 +6,38 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient } from '@angular/common/http';
 
 import {Itinerary} from '../models/itinerary';
+import { SharedModule } from '../shared.module';
+import { ApiResponse } from '../models/api-response';
 
 @Injectable()
 export class ItineraryService {
 
   constructor(private _http: HttpClient) { }
-  API_URL = "http://10.31.1.192:8080";
 
-  getIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
+  getItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
     return this._http
-      .get<Itinerary>(this.API_URL + '/');
+      .get<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries');
   }
 
-  updateIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
+  updateItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
     return this._http
-      .patch<Itinerary>(this.API_URL + '',{itinerary: Itinerary});
+      .patch<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries',{itinerary: Itinerary});
       
   }
 
-  deleteIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
+  deleteItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
     return this._http
-      .delete<Itinerary>(this.API_URL +'');
+      .delete<ApiResponse<Itinerary>>(SharedModule.API_URL +'/itineraries');
   }
 
-  createIntineraire(itinerary: Itinerary) : Observable<Itinerary> {
+  createItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
     return this._http
-      .post<Itinerary>(this.API_URL + '',{itinerary: Itinerary});
+      .post<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries',{itinerary: Itinerary});
+  }
+
+  searchItineraries(location: {lat: number, lng: number}, radius: number) : Observable<ApiResponse<Itinerary[]>> {
+    return this._http
+      .get<ApiResponse<Itinerary[]>>(SharedModule.API_URL + '/itineraries/search?lat=' + location.lat + '&lng=' + location.lng + "&radius=" + radius);
   }
  
 }

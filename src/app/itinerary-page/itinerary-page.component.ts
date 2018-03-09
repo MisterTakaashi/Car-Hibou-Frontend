@@ -11,6 +11,7 @@ import { GoogleMapsAPIWrapper } from '@agm/core';
 import { CompanyService } from '../shared/services/company.service';
 import { Company } from '../shared/models/company';
 import { Itinerary } from '../shared/models/itinerary';
+import { ItineraryService } from '../shared/services/itinerary.service';
 
 @Component({
   selector: 'app-itinerary-page',
@@ -48,14 +49,15 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
     private _locationService: LocationService,
     private _directionService: DirectionService,
     private _companyService: CompanyService,
+    private _itineraryService: ItineraryService,
     private _gmapsApiWrapper: GoogleMapsAPIWrapper
   ) { }
 
   ngOnInit() {
     this.calculateMapHeight();
 
-    this._companyService.getCompany().subscribe(company => {
-      this.company = company;
+    this._companyService.getCompany().subscribe(response => {
+      this.company = response.result;
     });
 
     this._locationService.getApproximativeLocation().subscribe(data => {
@@ -111,6 +113,10 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
       let itinerary = new Itinerary();
       itinerary.arrival = this.company.location;
       itinerary.start = this.departureSelected;
+
+      this._itineraryService.createItinerary(itinerary).subscribe(response => {
+        // TODO: Donner la liste des utilisateurs correspondants
+      });
     });
   }
 
