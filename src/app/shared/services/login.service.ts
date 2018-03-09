@@ -22,8 +22,8 @@ export class LoginService {
       let user: User = { username: username, password: password };
       return this._http.get<ApiResponse<User>>(`${SharedModule.API_URL}/users/auth?username=${username}&password=${password}`);
    }
-
-   public LogOut(user: User): Observable<ApiResponse<boolean>>{
-       return this._http.post<ApiResponse<boolean>>("URL", user);
+   
+   public LogOut(token: String): Observable<ApiResponse<boolean>>{
+       return this._http.post<ApiResponse<boolean>>("URL", token);
    }
 }

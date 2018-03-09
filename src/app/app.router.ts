@@ -7,6 +7,7 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { ItineraryPageComponent } from './itinerary-page/itinerary-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { TripPageComponent } from './trip-page/trip-page.component';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'itinerary', component: ItineraryPageComponent},
   {path: 'trip', component: TripPageComponent},
   {path: 'login', component: LoginPageComponent},
-  {path: 'register', component: RegisterPageComponent}
+  {path: 'register', component: RegisterPageComponent},
+  {path: 'logout', component: LogoutPageComponent}
 ];
 
 @NgModule({

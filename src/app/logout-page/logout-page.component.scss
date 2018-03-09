@@ -1,0 +1,21 @@
+@import "../../variables";
+
+.container-fluid {
+  // background: url('/assets/Screenshot_13-min.png');
+  padding-top: 200px;
+  background: $blue;
+  height: 915px;
+}
+
+h2 {
+    margin-top: 70px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+    color: white;
+  }
+
+  h5 {
+    color: rgba(white, 0.6);
+  }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { PhotonService } from './shared/services/photon.service';
 import { LocationService } from './shared/services/location.service';
@@ -26,4 +26,15 @@ import { CompanyService } from './shared/services/company.service';
 })
 export class AppComponent {
   title = 'app';
+  constructor(private _localSessionService : LocalSessionService){
+
+  }
+
+  ngOnInit(){
+  }
+
+  userIsConnected(){
+    //return true;
+    return this._localSessionService.isAuthenticated();
+  }
 }
