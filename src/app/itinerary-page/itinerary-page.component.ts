@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -6,13 +6,17 @@ import { LocationService } from '../shared/services/location.service';
 import { PhotonGeo } from '../shared/models/photon-geo';
 import { PhotonService } from '../shared/services/photon.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { DirectionService } from '../shared/services/direction.service';
+import { GoogleMapsAPIWrapper } from '@agm/core';
 
 @Component({
   selector: 'app-itinerary-page',
   templateUrl: './itinerary-page.component.html',
   styleUrls: ['./itinerary-page.component.scss']
 })
-export class ItineraryPageComponent implements OnInit {
+export class ItineraryPageComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('AgmMap') agmMap;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -31,7 +35,9 @@ export class ItineraryPageComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _photonService: PhotonService,
-    private _locationService: LocationService
+    private _locationService: LocationService,
+    private _directionService: DirectionService,
+    private _gmapsApiWrapper: GoogleMapsAPIWrapper
   ) { }
 
   ngOnInit() {
@@ -48,6 +54,12 @@ export class ItineraryPageComponent implements OnInit {
         searchArray.map(x => x.properties.formattedName = `${x.properties.name}, ${x.properties.city}, ${x.properties.country}`);
         observer.next(searchArray);
       });
+    });
+  }
+
+  ngAfterViewInit() {
+    this.agmMap.mapReady.subscribe(map => {
+      this._directionService.getDirectionSteps(map);
     });
   }
 

@@ -4,6 +4,8 @@ import { PhotonService } from './shared/services/photon.service';
 import { LocationService } from './shared/services/location.service';
 import { ItineraryService } from './shared/services/itinerary.service';
 import { LocalSessionService } from './shared/services/local-session.service';
+import { DirectionService } from './shared/services/direction.service';
+import { GoogleMapsAPIWrapper } from '@agm/core';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,9 @@ import { LocalSessionService } from './shared/services/local-session.service';
   providers: [
     PhotonService,
     LocationService,
-    ItineraryService
+    ItineraryService,
+    DirectionService,
+    GoogleMapsAPIWrapper
   ]
 })
 export class AppComponent {

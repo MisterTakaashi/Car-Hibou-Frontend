@@ -21,8 +21,8 @@
         </div>
       </div>
     </div>
-    <div class="col-9 px-0">
-      <agm-map [latitude]="mapCoords.lat" [longitude]="mapCoords.lng" [zoom]="13" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
+    <div class="col-9 px-0" my-custom-extension>
+      <agm-map #AgmMap [latitude]="mapCoords.lat" [longitude]="mapCoords.lng" [zoom]="13" [ngStyle]="{'height.px': innerHeight}" (mapClick)="mapOnClick($event)">
         <agm-marker *ngIf="departureSelected && departureSelected.lng && departureSelected.lat" [latitude]="departureSelected.lat" [longitude]="departureSelected.lng"></agm-marker>
         <agm-direction [origin]="{lng: 1.36, lat: 43.6813796}" [destination]="{lng: 1.393, lat: 43.613}"></agm-direction>
       </agm-map>

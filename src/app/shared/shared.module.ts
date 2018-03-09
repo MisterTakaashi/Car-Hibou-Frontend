@@ -1,14 +1,17 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 import { PhotonService } from './services/photon.service';
 import { LocationService } from './services/location.service';
 import { PlaceSearchPipe } from './pipes/place-search.pipe';
 import { ItineraryService } from './services/itinerary.service';
 import { LocalSessionService } from './services/local-session.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/httpInterceptor';
 import { DirectionsMapDirective } from './directives/agm-directive.directive';
+import { DirectionService } from './services/direction.service';
 
 const MODULES = [
   // NE PAS INCLURE UniversalModule, HttpModule, ou JsonpModule ici
@@ -36,6 +39,7 @@ const SERVICES = [
   LocationService,
   LocalSessionService,
   ItineraryService,
+  DirectionService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
