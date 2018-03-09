@@ -34,7 +34,7 @@ export class AppComponent {
   }
 
   userIsConnected(){
-    return true;
-    //return this._localSessionService.isAuthenticated();
+    //return true;
+    return this._localSessionService.isAuthenticated();
   }
 }
