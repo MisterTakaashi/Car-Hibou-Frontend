@@ -15,20 +15,29 @@
                   <a class="nav-link btn btn-search py-1 mr-5" routerLink="itinerary">Proposer un trajet</a>
                 </li>
                 <li *ngIf="!userIsConnected()" class="nav-item">
-                  <a class="nav-link" routerLink="/register">Inscription</a>
+                  <a class="nav-link btn btn-search py-1 mr-5" routerLink="/register">Inscription</a>
                 </li>
                 <li *ngIf="!userIsConnected()" class="nav-item">
-                  <a class="nav-link" routerLink="/login">Connexion</a>
+                  <a class="nav-link btn btn-search py-1 mr-5" routerLink="/login">Connexion</a>
                 </li>
+                <!-- Notifications Dropdown -->
                 <li *ngIf="userIsConnected()" class="nav-item">
-                    <a class="nav-link" routerLink="/">
-                      <i class="fa fa-bell-o"></i>
-                      Notifications
-                      <span class="badge badge-light">4</span>
+                  <div class="btn-group" dropdown>
+                    <a dropdownToggle class="nav-link btn btn-search py-1 mr-5" routerLink="/">
+                      <i class="fa fa-bell-o"></i> Notifications
+                      <span *ngIf="notifications.length > 0" class="badge badge-light">{{notifications.length}}</span>
                     </a>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <!-- TODO Notifications -->
+                      <li *ngFor="let notif of notifications" role="menuitem">
+                        <a class="dropdown-item" routerLink="/"></a>
+                        <p>{{notif.message}}</p>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
                 <li *ngIf="userIsConnected()" class="nav-item">
-                  <a class="nav-link" routerLink="/logout">Deconnexion</a>
+                  <a class="nav-link btn btn-search py-1 mr-5" routerLink="/logout">Deconnexion</a>
                 </li>
               </ul>
             </div>

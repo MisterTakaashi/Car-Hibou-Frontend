@@ -1,4 +1,4 @@
-export class Notification {
+export class AppNotification {
     id?: number;
     message: string;
     redirect: string;

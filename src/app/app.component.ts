@@ -9,6 +9,7 @@ import { GoogleMapsAPIWrapper } from '@agm/core';
 import { LoginService } from './shared/services/login.service';
 import { CompanyService } from './shared/services/company.service';
 import { NotificationService } from './shared/services/notification.service';
+import { AppNotification } from './shared/models/notification';
 
 @Component({
   selector: 'app-root',
@@ -28,24 +29,32 @@ import { NotificationService } from './shared/services/notification.service';
 })
 export class AppComponent {
   title = 'app';
-  notifications: Array<Notification>;
-  notificationsInterval: NodeJS.Timer;
+  notifications: Array<AppNotification>;
+  notificationsInterval: any;
   error: Error;
 
   constructor(
     private _localSessionService : LocalSessionService,
     private _notificationService : NotificationService
-  ){
-
-  }
+  ){ }
 
   ngOnInit(){
-    this.notificationsInterval = setInterval(this.getNotifications, 5000);
+    this.notifications = Array();
+    this.notifications.push({ message : "Notif 1", seen : false, redirect : ""});
+    this.notifications.push({ message : "User Accepted", seen : false, redirect : ""});
+    this.notifications.push({ message : "Trip created", seen : false, redirect : ""});
+    this.notifications.push({ message : "Trip Deleted", seen : false, redirect : ""});
+    this.startInterval();
   }
 
   userIsConnected(){
     return true;
     //return this._localSessionService.isAuthenticated();
+  }
+
+  startInterval(){
+    clearInterval(this.notificationsInterval);
+    this.notificationsInterval = setInterval(this.getNotifications, 5000);
   }
 
   getNotifications(){
@@ -54,6 +63,8 @@ export class AppComponent {
         (data) => this.notifications = data.result,
         (err) => this.error = err
       );
+    } else {
+      this.notifications = Array();
     }
   }
 }
