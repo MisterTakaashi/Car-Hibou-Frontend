@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { NouisliderModule } from 'ng2-nouislider';
@@ -48,6 +49,7 @@ import { LogoutPageComponent } from './logout-page/logout-page.component';
     BsDatepickerModule.forRoot(),
     TypeaheadModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
     NouisliderModule
   ],
   providers: [],
