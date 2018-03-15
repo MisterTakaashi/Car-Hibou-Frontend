@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LocalSessionService } from '../shared/services/local-session.service';
+
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-trip-page',
@@ -9,12 +12,15 @@ import { Router } from '@angular/router';
 })
 export class TripPageComponent implements OnInit {
 
-  driver : boolean = true;
+  driver : boolean = false;
+  conected : boolean = false;
   constructor(
+    private _localSessionService: LocalSessionService,
     private _routerService: Router
   ) { }
 
   ngOnInit() {
+   this.conected = this._localSessionService.isAuthenticated();
   }
 
   public onClick(){

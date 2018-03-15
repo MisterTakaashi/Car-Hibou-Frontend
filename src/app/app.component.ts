@@ -29,7 +29,7 @@ import { NotificationService } from './shared/services/notification.service';
 export class AppComponent {
   title = 'app';
   notifications: Array<Notification>;
-  notificationsInterval: NodeJS.Timer;
+  notificationsInterval: any;
   error: Error;
 
   constructor(
