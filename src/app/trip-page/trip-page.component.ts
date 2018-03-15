@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {  ModalDirective } from 'ngx-bootstrap/modal';
+
 import { LocalSessionService } from '../shared/services/local-session.service';
 
 import { Router } from '@angular/router';
@@ -13,18 +15,31 @@ import { Router } from '@angular/router';
 export class TripPageComponent implements OnInit {
 
   driver : boolean = false;
-  conected : boolean = false;
+  conected : boolean = true;
+  modalRef: ModalDirective;
   constructor(
     private _localSessionService: LocalSessionService,
     private _routerService: Router
   ) { }
 
   ngOnInit() {
-   this.conected = this._localSessionService.isAuthenticated();
+   //this.conected = this._localSessionService.isAuthenticated();
   }
 
   public onClick(){
    
+  }
+
+
+
+    confirm(): void {
+    
+    this.modalRef.hide();
+  }
+ 
+  decline(): void {
+    
+    this.modalRef.hide();
   }
 
 }
