@@ -7,7 +7,7 @@
             <a class="navbar-brand" routerLink="/">
               <span>Car Hibou</span>
             </a>
-            
+
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto"></ul>
               <ul class="navbar-nav">
@@ -21,7 +21,14 @@
                   <a class="nav-link" routerLink="/login">Connexion</a>
                 </li>
                 <li *ngIf="userIsConnected()" class="nav-item">
-                    <a class="nav-link" routerLink="/logout">Deconnexion</a>
+                    <a class="nav-link" routerLink="/">
+                      <i class="fa fa-bell-o"></i>
+                      Notifications
+                      <span class="badge badge-light">4</span>
+                    </a>
+                </li>
+                <li *ngIf="userIsConnected()" class="nav-item">
+                  <a class="nav-link" routerLink="/logout">Deconnexion</a>
                 </li>
               </ul>
             </div>

@@ -8,6 +8,7 @@ import { DirectionService } from './shared/services/direction.service';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { LoginService } from './shared/services/login.service';
 import { CompanyService } from './shared/services/company.service';
+import { NotificationService } from './shared/services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -21,20 +22,38 @@ import { CompanyService } from './shared/services/company.service';
     LocalSessionService,
     CompanyService,
     GoogleMapsAPIWrapper,
-    LoginService
+    LoginService,
+    NotificationService
   ]
 })
 export class AppComponent {
   title = 'app';
-  constructor(private _localSessionService : LocalSessionService){
+  notifications: Array<Notification>;
+  notificationsInterval: NodeJS.Timer;
+  error: Error;
+
+  constructor(
+    private _localSessionService : LocalSessionService,
+    private _notificationService : NotificationService
+  ){
 
   }
 
   ngOnInit(){
+    this.notificationsInterval = setInterval(this.getNotifications, 5000);
   }
 
   userIsConnected(){
-    //return true;
-    return this._localSessionService.isAuthenticated();
+    return true;
+    //return this._localSessionService.isAuthenticated();
+  }
+
+  getNotifications(){
+    if (this.userIsConnected){
+      this._notificationService.GetNotifications(this._localSessionService.getUser()).subscribe(
+        (data) => this.notifications = data.result,
+        (err) => this.error = err
+      );
+    }
   }
 }

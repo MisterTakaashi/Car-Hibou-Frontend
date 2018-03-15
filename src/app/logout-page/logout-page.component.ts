@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LogoutPageComponent implements OnInit {
 
-  private _interval : any;
+  private _interval : NodeJS.Timer;
 
   constructor(
     private _localSessionService: LocalSessionService,
@@ -32,7 +32,6 @@ export class LogoutPageComponent implements OnInit {
   }
 
   redirect() :void {
-    console.log("Interval !");
     clearInterval(this._interval);
     this._interval = null;
     this._router.navigate(["/"]);

@@ -26,8 +26,8 @@ export class LoginPageComponent implements OnInit {
     if (this.registrationIsOk()){
       this._loginService.LogIn(this.login, this.password).subscribe(response => {
         if (response != null){
-          this._localSessionService.setUser(response.result);
-          this._localSessionService.setToken(response.token);
+          this._localSessionService.setUser(response.result.user);
+          this._localSessionService.setToken(response.result.token);
         }
         console.log(response);
         this._routerService.navigate(['/']);
