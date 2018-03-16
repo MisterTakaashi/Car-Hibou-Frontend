@@ -40,16 +40,16 @@ export class AppComponent {
 
   ngOnInit(){
     this.notifications = Array();
-    this.notifications.push({ message : "Notif 1", seen : false, redirect : ""});
-    this.notifications.push({ message : "User Accepted", seen : false, redirect : ""});
-    this.notifications.push({ message : "Trip created", seen : false, redirect : ""});
-    this.notifications.push({ message : "Trip Deleted", seen : false, redirect : ""});
+    this.notifications.push({ message : "Notif 1", seen : false, redirect : "/login"});
+    this.notifications.push({ message : "User Accepted", seen : false, redirect : "/login"});
+    this.notifications.push({ message : "Trip created", seen : true, redirect : "/login"});
+    this.notifications.push({ message : "Trip Deleted", seen : true, redirect : "/login"});
     this.startInterval();
   }
 
   userIsConnected(){
-    return true;
-    //return this._localSessionService.isAuthenticated();
+    //return true;
+    return this._localSessionService.isAuthenticated();
   }
 
   startInterval(){
@@ -65,6 +65,14 @@ export class AppComponent {
       );
     } else {
       this.notifications = Array();
+    }
+  }
+
+  notifClicked(notif: AppNotification){
+    console.log("Notification clicked");
+    if (notif.seen != true){
+      notif.seen = true;
+      this._notificationService.UpdateNotification(notif).subscribe();
     }
   }
 }
