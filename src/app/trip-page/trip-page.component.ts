@@ -16,7 +16,8 @@ export class TripPageComponent implements OnInit {
 
   driver : boolean = false;
   conected : boolean = true;
-  modalRef: ModalDirective;
+  comm = "";
+ 
   constructor(
     private _localSessionService: LocalSessionService,
     private _routerService: Router
@@ -32,14 +33,15 @@ export class TripPageComponent implements OnInit {
 
 
 
-    confirm(): void {
+  confirm(): void {
     
-    this.modalRef.hide();
+    console.log(this.comm);
+    
   }
  
   decline(): void {
     
-    this.modalRef.hide();
+    this.comm = "";
   }
 
 }
