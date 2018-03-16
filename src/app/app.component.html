@@ -27,16 +27,14 @@
                       <i class="fa fa-bell-o"></i> Notifications
                       <span *ngIf="notifications.length > 0" class="badge badge-light">{{notifications.length}}</span>
                     </a>
-                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                    <ul *dropdownMenu class="dropdown-menu light-blue-background" role="menu">
                       <!-- TODO Notifications -->
                       <li *ngFor="let notif of notifications" role="menuitem">
                         <a class="dropdown-item" routerLink="{{notif.redirect}}" (click)="notifClicked(notif);">
-                          <p>
                             <i *ngIf="notif.seen" class="fa fa-circle-thin fa-fw" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Seen."></i>
                             <i *ngIf="!notif.seen" class="fa fa-circle fa-fw" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Unseen."></i>
                             {{notif.message}}
-                          </p>
-                        </a>
+                          </a>
                       </li>
                     </ul>
                   </div>
