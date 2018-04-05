@@ -32,7 +32,6 @@ export class LogoutPageComponent implements OnInit {
   }
 
   redirect() :void {
-    console.log("Interval !");
     clearInterval(this._interval);
     this._interval = null;
     this._router.navigate(["/"]);

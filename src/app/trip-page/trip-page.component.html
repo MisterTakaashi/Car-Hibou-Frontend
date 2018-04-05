@@ -1,108 +1,160 @@
 <div class="container">
-<div class="card-body">
-  <div class="row">
-    <div class="col-3">
-      <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+      </div>
+      <div class="col-7 pl-0">
+        <h5 class="card-title mt-1 mb-1">Michel</h5>
+        <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+      </div>
+      <div class="col-2 pl-0">
+        <a routerLink="#" class="btn btn-info">Partager le Trajet
+          <i class="fa fa-facebook-square" style="font-size:24px"></i>
+        </a>
+      </div>
     </div>
-    <div class="col-7 pl-0">
-      <h5 class="card-title mt-1 mb-1">Michel</h5>
-      <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
-    </div>
-    <div class="col-2 pl-0"><a routerLink="#" class="btn btn-info">Partager le Trajet <i class="fa fa-facebook-square" style="font-size:24px"></i></a></div>
-  </div>
-  <p class="card-text mt-2">Responsable commercial chez Bible Black Corporation.</p>
- 
-  <table class="table">
-    <tbody>
-<!--      <tr>
+    <p class="card-text mt-2">Responsable commercial chez Bible Black Corporation.</p>
+
+    <table class="table">
+      <tbody>
+        <!--      <tr>
         <th scope="row"></th>
         <td>Depart de Toulouse à 18h</td>
         <td>Arrivé à geneve à 4h</td>
-      </tr>--> 
-      <tr> 
-        <th scope="row">Vehicule : Fiat Multiplat</th>
-      </tr>
-      <tr>
-        <th scope="row">non fumeur : oui</th>
-      </tr>
-      <tr>
-        <th scope="row">place restante : 5</th>
-      </tr>
-    </tbody>
-  </table>
-  
-  <div *ngIf="driver == false"> 
-  <div class="text-center">
-    <a routerLink="/trip" class="btn btn-primary">Proposer votre compagnie</a>
-  </div>
-</div>
-<div *ngIf="driver == true">
-    <table class="table">
+      </tr>-->
+        <tr>
+          <th scope="row">Vehicule : Fiat Multiplat</th>
+        </tr>
+        <tr>
+          <th scope="row">non fumeur : oui</th>
+        </tr>
+        <tr>
+          <th scope="row">place restante : 5</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="conected == false">
+      <div class="text-center">
+        <a routerLink="/login" class="btn btn-primary">Conectez vous pour Covoiturer !</a>
+      </div>
+    </div>
+    <div *ngIf="driver == false && conected == true">
+      <div class="text-center">
+        <a routerLink="/trip" class="btn btn-primary">Proposer votre compagnie</a>
+      </div>
+    </div>
+    <div *ngIf="driver == true && conected == true">
+      <table class="table">
         <tbody>
           <tr>
             <th scope="row"> Demende en attente </th>
             <td>
-                <div class="card-body">
-                    <div class="row">
-                      <div class="col-3">
-                        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
-                      </div>
-                      <div class="col-9 pl-0">
-                        <h5 class="card-title mt-1 mb-1">Michel</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
-                      </div>
-                    </div>
-                 </div>
-                 <a routerLink="/trip" class="btn btn-primary">Valider</a><a routerLink="/trip" class="btn btn-danger">Refuser</a>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-3">
+                    <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+                  </div>
+                  <div class="col-9 pl-0">
+                    <h5 class="card-title mt-1 mb-1">Michel</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+                  </div>
+                </div>
+              </div>
+              <a routerLink="/trip" class="btn btn-primary">Valider</a>
+              <a routerLink="/trip" class="btn btn-danger">Refuser</a>
             </td>
             <td>
-                <div class="card-body">
-                    <div class="row">
-                      <div class="col-3">
-                        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
-                      </div>
-                      <div class="col-9 pl-0">
-                        <h5 class="card-title mt-1 mb-1">Michel</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
-                      </div>
-                    </div>
-                 </div>
-                 <a routerLink="/trip" class="btn btn-primary">Valider</a><a routerLink="/trip" class="btn btn-danger">Refuser</a>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-3">
+                    <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+                  </div>
+                  <div class="col-9 pl-0">
+                    <h5 class="card-title mt-1 mb-1">Michel</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+                  </div>
+                </div>
+              </div>
+              <a routerLink="/trip" class="btn btn-primary">Valider</a>
+              <a routerLink="/trip" class="btn btn-danger">Refuser</a>
             </td>
           </tr>
         </tbody>
-    </table>
+      </table>
 
-</div>
+    </div>
+
+
+    <h3>Commentaire </h3>
+
+    <div class="row">
+
+      <div>
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-2">
+              <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+            </div>
+            <div class="col-9 pl-0">
+              <h5 class="card-title mt-1 mb-1">Michel</h5>
+              <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+            </div>
+          </div>
+          <p class="card-text mt-2">"Super Voyage en compagnie de michel !"</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">
+              <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
+            </div>
+            <div class="col-9 pl-0">
+              <h5 class="card-title mt-1 mb-1">Michel</h5>
+              <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
+            </div>
+          </div>
+          <p class="card-text mt-2">"je n'aurais jamais penser a monter dans une fiat multiplat"</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div *ngIf="conected == false">
+      <div class="text-center">
+        <a routerLink="/login" class="btn btn-primary">Conectez vous pour commenter !</a>
+      </div>
+    </div>
+    <div *ngIf="driver == false && conected == true">
+      <div class="text-center">  
+        <button (click)="tripModal.show()">Laisser un commentaire</button>
+          
+      </div>
+    </div>
+    <div *ngIf="driver == true && conected == true">
+
+    </div>
+
+  </div>
 </div>
 
-<div class="align right">
-     <h3>Commentaire  </h3>
-     <div class="col-2">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-3">
-            <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
-          </div>
-          <div class="col-9 pl-0">
-            <h5 class="card-title mt-1 mb-1">Michel</h5>
-            <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
-          </div>
-        </div>
-        <p class="card-text mt-2">"Super Voyage en compagnie de michel !"</p>
-     </div>
-     <div class="col-2">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-3">
-            <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
-          </div>
-          <div class="col-9 pl-0">
-            <h5 class="card-title mt-1 mb-1">Michel</h5>
-            <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
-          </div>
-        </div>
-        <p class="card-text mt-2">"je n'aurais jamais penser a monter dans une fiat multiplat"</p>
-     </div>
-</div>
-</div>
+<div bsModal #tripModal="bs-modal" class="modal fade">
+    <div class="modal-header">
+      
+      <h4 class="modal-title pull-left">Créer un commentaire</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="tripModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <textarea [(ngModel)]="comm"></textarea>
+      <button type="button" class="btn btn-primary" (click)="confirm();tripModal.hide()" >Valider</button>
+      <button type="button" class="btn btn-dark" (click)="decline();tripModal.hide()" >anuler</button>
+    </div>
+ 
+  </div>

@@ -29,8 +29,8 @@ export class RegisterPageComponent implements OnInit {
     {
       this._loginService.Register(this.login, this.password, this.password2, this.mail).subscribe(response => {
             if (response != null){
-              this._localSessionService.setUser(response.result);
-              this._localSessionService.setToken(response.token);
+              this._localSessionService.setUser(response.result.user);
+              this._localSessionService.setToken(response.result.token);
               this._routerService.navigate(['/']);
             }
           });

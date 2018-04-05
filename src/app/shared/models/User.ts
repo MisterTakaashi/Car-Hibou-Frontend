@@ -1,8 +1,13 @@
 export class User {
+    id?: number;
     username: string;
     password: string;
     password2?: string;
     mail?: string;
-    token? : string;
-  }
+}
+
+export class UserSession{
+  user: User;
+  token?: string;
+}
   

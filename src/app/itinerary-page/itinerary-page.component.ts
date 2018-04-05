@@ -106,10 +106,10 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
   validateItinerary() {
     this.loading = true;
     this._directionService.getDirectionSteps(this.map).subscribe(direction => {
-      console.log(direction);
+      /*console.log(direction);
       console.log(direction.routes[0].overview_path[0]);
       console.log(direction.routes[0].overview_path[0].lat());
-      console.log(direction.routes[0].overview_path[0].lng());
+      console.log(direction.routes[0].overview_path[0].lng());*/
       let itinerary = new Itinerary();
       itinerary.arrival = this.company.location;
       itinerary.start = this.departureSelected;

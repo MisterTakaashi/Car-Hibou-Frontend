@@ -5,3 +5,7 @@
 
   margin-top: 0.2rem;
 }
+
+.light-blue-background {
+  background-color: lighten($blue, 40);
+}
