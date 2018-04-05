@@ -32,7 +32,8 @@ export class ItineraryService {
 
   createItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
     return this._http
-      .post<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries',{itinerary: Itinerary});
+      // .post<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries', {arrival: itinerary.arrival, start: itinerary.start, path: itinerary.path});
+      .post<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries', JSON.stringify(itinerary));
   }
 
   searchItineraries(location: {lat: number, lng: number}, radius: number) : Observable<ApiResponse<Itinerary[]>> {

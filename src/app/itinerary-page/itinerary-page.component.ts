@@ -113,6 +113,10 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
       let itinerary = new Itinerary();
       itinerary.arrival = this.company.location;
       itinerary.start = this.departureSelected;
+      itinerary.path = direction.routes[0].overview_path.map(x => { return {lat: x.lat(), lng: x.lng()} });
+
+      console.log("Transfert terminé");
+      console.log(itinerary);
 
       this._itineraryService.createItinerary(itinerary).subscribe(response => {
         // TODO: Donner la liste des utilisateurs correspondants

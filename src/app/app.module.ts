@@ -21,6 +21,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { TripPageComponent } from './trip-page/trip-page.component';
 import { NearbyUsersComponent } from './nearby-users/nearby-users.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
+import { TokenInterceptor } from './shared/interceptors/httpInterceptor';
+import { LocalSessionService } from './shared/services/local-session.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,14 @@ import { LogoutPageComponent } from './logout-page/logout-page.component';
     TypeaheadModule.forRoot(),
     NouisliderModule
   ],
-  providers: [],
+  providers: [
+    LocalSessionService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
