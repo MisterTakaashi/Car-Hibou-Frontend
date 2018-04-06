@@ -43,13 +43,14 @@ export class AppComponent {
 
   // Initialization
   ngOnInit(){
-    this.notifications = Array();
+    /*this.notifications = Array();
     this.notifications.push({ message : "Notif 1", seen : false, redirect : "/login"});
     this.notifications.push({ message : "User Accepted", seen : false, redirect : "/login"});
     this.notifications.push({ message : "Trip created", seen : true, redirect : "/login"});
-    this.notifications.push({ message : "Trip Deleted", seen : true, redirect : "/login"});
+    this.notifications.push({ message : "Trip Deleted", seen : true, redirect : "/login"});*/
     // Start the Interval to look for the new Notifications
     this.startInterval();
+    this.getNotifications();
   }
 
   // Is the User Connected
@@ -67,8 +68,10 @@ export class AppComponent {
   // Get the Notifications for the Current logged In User
   getNotifications() : void{
     if (this.userIsConnected){
-      this._notificationService.GetNotifications(this._localSessionService.getUser()).subscribe(
-        (data) => this.notifications = data.result,
+      this._notificationService.GetNotifications().subscribe(data => {
+            this.notifications = data.result
+            console.log(data.result);
+        },
         (err) => this.error = err
       );
     } else {

@@ -4,7 +4,9 @@ import {  ModalDirective } from 'ngx-bootstrap/modal';
 
 import { LocalSessionService } from '../shared/services/local-session.service';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ItineraryService } from '../shared/services/itinerary.service';
+import { Itinerary } from '../shared/models/itinerary';
 
 
 @Component({
@@ -14,17 +16,24 @@ import { Router } from '@angular/router';
 })
 export class TripPageComponent implements OnInit {
 
+    tripId : number; 
+    trip: Itinerary;
   driver : boolean = false;
   conected : boolean = true;
   comm = "";
  
   constructor(
+    private _route: ActivatedRoute,
     private _localSessionService: LocalSessionService,
-    private _routerService: Router
+    private _itineraryService: ItineraryService
   ) { }
 
   ngOnInit() {
    //this.conected = this._localSessionService.isAuthenticated();
+   this.tripId = this._route.snapshot.params.id;
+   this._itineraryService.getItinerary(this.tripId).subscribe(data => {
+       this.trip = data.result;
+   });
   }
 
   public onClick(){

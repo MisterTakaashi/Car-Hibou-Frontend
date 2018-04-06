@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="card-body">
+  <div class="card-body" *ngIf="trip">
     <div class="row">
       <div class="col-3">
         <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
       </div>
       <div class="col-7 pl-0">
-        <h5 class="card-title mt-1 mb-1">Michel</h5>
+        <h5 class="card-title mt-1 mb-1">{{trip.user.username}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
       </div>
       <div class="col-2 pl-0">

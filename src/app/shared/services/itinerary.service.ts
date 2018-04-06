@@ -14,9 +14,9 @@ export class ItineraryService {
 
   constructor(private _http: HttpClient) { }
 
-  getItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
+  getItinerary(id: number) : Observable<ApiResponse<Itinerary>> {
     return this._http
-      .get<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries');
+      .get<ApiResponse<Itinerary>>(SharedModule.API_URL + '/itineraries/' + id);
   }
 
   updateItinerary(itinerary: Itinerary) : Observable<ApiResponse<Itinerary>> {
@@ -38,7 +38,7 @@ export class ItineraryService {
 
   searchItineraries(location: {lat: number, lng: number}, radius: number) : Observable<ApiResponse<Itinerary[]>> {
     return this._http
-      .get<ApiResponse<Itinerary[]>>(SharedModule.API_URL + '/itineraries/search?lat=' + location.lat + '&lng=' + location.lng + "&radius=" + radius);
+      .get<ApiResponse<Itinerary[]>>(SharedModule.API_URL + '/itineraries?lat=' + location.lat + '&lng=' + location.lng + "&radius=" + radius);
   }
  
 }

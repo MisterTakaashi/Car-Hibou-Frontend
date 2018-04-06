@@ -12,6 +12,7 @@ import { CompanyService } from '../shared/services/company.service';
 import { Company } from '../shared/models/company';
 import { Itinerary } from '../shared/models/itinerary';
 import { ItineraryService } from '../shared/services/itinerary.service';
+import { User } from '../shared/models/User';
 
 @Component({
   selector: 'app-itinerary-page',
@@ -42,6 +43,8 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
   loading: boolean = false;
 
   map: any;
+
+  itineraries: Itinerary[];
 
   constructor(
     private _route: ActivatedRoute,
@@ -119,7 +122,9 @@ export class ItineraryPageComponent implements OnInit, AfterViewInit {
       console.log(itinerary);
 
       this._itineraryService.createItinerary(itinerary).subscribe(response => {
-        // TODO: Donner la liste des utilisateurs correspondants
+        this._itineraryService.searchItineraries({lat: itinerary.start.lat, lng: itinerary.start.lng}, 500).subscribe(data => {
+            this.itineraries = data.result;
+        });
       });
     });
   }

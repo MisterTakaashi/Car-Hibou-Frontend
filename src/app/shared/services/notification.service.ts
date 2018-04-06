@@ -13,8 +13,8 @@ export class NotificationService {
   constructor(private _http: HttpClient) { }
    
   // Get all notifications for given user
-   public GetNotifications(user : User): Observable<ApiResponse<Array<AppNotification>>> {
-       return this._http.get<ApiResponse<Array<AppNotification>>>(`${SharedModule.API_URL}/notifications/` + user.id);
+   public GetNotifications(): Observable<ApiResponse<Array<AppNotification>>> {
+       return this._http.get<ApiResponse<Array<AppNotification>>>(`${SharedModule.API_URL}/notifications`);
    }
 
    // Updates the given Notification

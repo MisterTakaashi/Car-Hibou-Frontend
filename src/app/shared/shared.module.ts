@@ -67,7 +67,7 @@ const SERVICES = [
 })
 export class SharedModule {
 
-  static API_URL = "http://10.31.1.192:8080";
+  static API_URL = "http://10.31.3.93:8080";
 
   static forRoot(): ModuleWithProviders {
     return {

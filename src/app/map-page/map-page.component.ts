@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { NouiFormatter } from 'ng2-nouislider';
 import { ActivatedRoute } from '@angular/router';
 import { ItineraryService } from '../shared/services/itinerary.service';
+import { Itinerary } from '../shared/models/itinerary';
 
 // Utilisé dans le cas de tooltips
 // export class RadiusFormatter implements NouiFormatter {
@@ -48,7 +49,7 @@ export class MapPageComponent implements OnInit {
 
   innerHeight: number;
 
-  users: number[];
+  itineraries: Itinerary[];
 
   constructor(
     private _route: ActivatedRoute,
@@ -65,6 +66,10 @@ export class MapPageComponent implements OnInit {
       let radius = data.get('radius');
       let date = data.get('date');
 
+      this.itineraryService.searchItineraries({lat: +lat, lng: +lng}, +radius).subscribe(data => {
+        this.itineraries = data.result;
+      });
+
       this.searchDate = new Date(date);
 
       this.mapCoords.lat = Number.parseFloat(lat);
@@ -76,8 +81,6 @@ export class MapPageComponent implements OnInit {
     });
 
     this.calculateMapHeight();
-
-    this.users = [0,0,0,0,0,0,0,0,0,0];
   }
 
   mapOnClick(event: any) {

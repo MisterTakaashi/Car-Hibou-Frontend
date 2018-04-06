@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
+  HttpHeaders,
   HttpHandler,
   HttpEvent,
   HttpInterceptor
@@ -19,16 +20,21 @@ export class TokenInterceptor implements HttpInterceptor {
 
     console.log("Salut !");
 
-    request.headers.set('Content-Type', 'application/json');
+    const c = request.clone({
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'testtoken'
+        })
+      });
 
-    let req = request.clone({headers: request.headers.set('Content-Type', 'application/json')})
-    if (this._localSessionService.getToken() != undefined && this._localSessionService.getToken() != null && this._localSessionService.getToken() != ""){
-        request = request.clone({
-          setHeaders: {
-            Authorization: `Bearer ${this._localSessionService.getToken()}`
-          }
-        });
-    }
-    return next.handle(req);
+    // if (this._localSessionService.getToken() != undefined && this._localSessionService.getToken() != null && this._localSessionService.getToken() != ""){
+    //     request = request.clone({
+    //       setHeaders: {
+    //         Authorization: `testtoken`
+    //       }
+    //     });
+    // }
+
+    return next.handle(c);
   }
 }

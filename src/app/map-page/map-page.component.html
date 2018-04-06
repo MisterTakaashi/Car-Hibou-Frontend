@@ -13,20 +13,20 @@
         <div class="px-2">
           <h4 class="mt-2">Résultats de la recherche</h4>
           <hr class="mt-3">
-          <div class="card w-100 mt-3" *ngFor="let user of users">
+          <div class="card w-100 mt-3" *ngFor="let itinerary of itineraries">
             <div class="card-body">
               <div class="row">
                 <div class="col-3">
                   <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Michel" class="img-fluid rounded-circle">
                 </div>
                 <div class="col-9 pl-0">
-                  <h5 class="card-title mt-1 mb-1">Michel</h5>
+                  <h5 class="card-title mt-1 mb-1">{{ itinerary.user.username }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">25 ans</h6>
                 </div>
               </div>
               <p class="card-text mt-2">Responsable commercial chez Bible Black Corporation.</p>
               <div class="text-right">
-                <a routerLink="/trip" class="btn btn-primary">Covoiturer</a>
+                <a [routerLink]="['/', 'trip', itinerary.id]" class="btn btn-primary">Covoiturer</a>
               </div>
             </div>
           </div>
