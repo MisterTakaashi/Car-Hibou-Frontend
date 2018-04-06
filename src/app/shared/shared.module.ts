@@ -13,6 +13,7 @@ import { TokenInterceptor } from './interceptors/httpInterceptor';
 import { DirectionsMapDirective } from './directives/agm-directive.directive';
 import { DirectionService } from './services/direction.service';
 import { CompanyService } from './services/company.service';
+import { CommentariesService } from './services/commentaries.service';
 
 const MODULES = [
   // NE PAS INCLURE UniversalModule, HttpModule, ou JsonpModule ici
@@ -42,6 +43,7 @@ const SERVICES = [
   ItineraryService,
   CompanyService,
   DirectionService,
+  CommentariesService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
@@ -63,7 +65,7 @@ const SERVICES = [
     ...PIPES,
     ...COMPONENTS
   ],
-  providers: [],
+  providers: [CommentariesService],
 })
 export class SharedModule {
 
